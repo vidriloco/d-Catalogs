@@ -1,0 +1,38 @@
+<%- model_class = Book -%>
+<div class="big-panel admin">
+	<div class="page-header">
+	  <h1><%= @book.title %> <span class="uppercased"><%= @book.author %></span></h1>
+		<h3><%= t('activerecord.models.book') %></h3>
+		<div class="pull-right">
+			<p class="price">$ <%= @book.price %> MXN</p>
+		</div>
+	</div>
+
+	<dl class="dl-horizontal">
+		<dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
+	  <dd>
+			<% if @book.quantity == 1 %>
+				<%= t('app.views.common.show.quantity.one') %>
+			<% else %>
+				<%= t('app.views.common.show.quantity.other', :number => @book.quantity) %>
+			<% end %>
+		</dd>
+		<br>
+		<dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+	  <dd><%= distance_of_time_in_words_to_now @book.created_at %></dd>
+		<dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+	  <dd><%= distance_of_time_in_words_to_now @book.updated_at %></dd>
+		<br>
+		<dt><strong><%= model_class.human_attribute_name(:reference_id) %>:</strong></dt>
+	  <dd><%= @book.reference_id %></dd>
+	</dl>
+
+	<div class="form-actions">
+	  <%= link_to t('app.controls.back'), books_path, :class => 'btn'  %>
+	  <%= link_to t('app.controls.edit'), edit_book_path(@book), :class => 'btn' %>
+	  <%= link_to t('app.controls.destroy'), book_path(@book),
+	              :method => 'delete',
+	              :confirm => t('app.views.books.dialogs.destroy_confirmation'),
+	              :class => 'btn btn-danger' %>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<%- model_class = PreSale -%>
+<div class="big-panel">
+	<div class="page-header">
+	  <h1><%=t 'app.navbar.sections.pre_sales' %></h1>
+	</div>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= model_class.human_attribute_name(:id) %></th>
+	      <th><%= t('app.attributes.common.reference_id') %></th>
+	      <th><%= model_class.human_attribute_name(:event) %></th>
+	      <th><%= model_class.human_attribute_name(:date) %></th>
+	      <th><%= t('app.attributes.common.price') %></th>
+	      <th><%= model_class.human_attribute_name(:description) %></th>
+	      <th><%= t('app.attributes.common.created_at') %></th>
+	      <th><%= t('app.attributes.common.quantity') %></th>
+	
+	      <th><%= t('app.navbar.sections.actions') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @pre_sales.each do |pre_sale| %>
+	      <tr>
+	        <td class="id-details"><%= link_to pre_sale.id, pre_sale_path(pre_sale) %></td>
+	        <td><%= pre_sale.event %></td>
+	        <td><%= pre_sale.date %></td>
+	        <td><%= pre_sale.price %></td>
+	        <td><%= pre_sale.description %></td>
+	        <td><%= distance_of_time_in_words_to_now(pre_sale.created_at, true) %></td>
+	        <td>
+	          <%= link_to t('app.controls.edit'),
+	                      edit_pre_sale_path(pre_sale), :class => 'btn btn-mini' %>
+	          <%= link_to t('app.controls.destroy'),
+	                      pre_sale_path(pre_sale),
+	                      :method => :delete,
+	                      :confirm => t('app.views.pre_sales.dialogs.destroy_confirmation'),
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<%= link_to t('app.controls.new'), new_pre_sale_path, :class => 'btn btn-primary' %>
+</div>

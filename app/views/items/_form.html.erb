@@ -1,0 +1,28 @@
+<%= form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :brand, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :brand, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :model, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :model, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :kind, :class => 'control-label' %>
+    <div class="controls">
+			<%= f.select(:kind, Item.humanized_categories_for(:kinds).invert, { :include_blank => true, :class => 'select_field'}) %>
+    </div>
+  </div>
+
+	<%= render :partial => 'commons/form_fields', :locals => {:f => f} %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('app.controls.cancel'),
+                items_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<%- model_class = Item -%>
+<div class="big-panel">
+	<div class="page-header">
+	  <h1><%= t('app.views.items.index.title') %></h1>
+	</div>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= model_class.human_attribute_name(:id) %></th>
+	      <th><%= t('app.attributes.common.reference_id') %></th>
+	      <th><%= model_class.human_attribute_name(:brand) %></th>
+	      <th><%= model_class.human_attribute_name(:model) %></th>
+	      <th><%= t('app.attributes.common.price') %></th>
+	      <th><%= t('app.attributes.common.created_at') %></th>
+	      <th><%= t('app.attributes.common.quantity') %></th>
+	
+	      <th><%= t('app.navbar.sections.actions') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @items.each do |item| %>
+	      <tr>
+	        <td class="id-details"><%= link_to item.id, item_path(item) %></td>
+		      <td><%= item.reference_id %></td>
+	        <td><%= item.brand %></td>
+	        <td><%= item.model %></td>
+	        <td>$ <%= item.price %> MXN</td>
+	        <td><%= distance_of_time_in_words_to_now(item.created_at, true) %></td>
+	        <td><%= item.quantity %></td>
+	        <td>
+	          <%= link_to t('app.controls.edit'), edit_item_path(item), :class => 'btn btn-mini' %>
+	          <%= link_to t('app.controls.destroy'), item_path(item), :method => :delete,
+	                      :confirm => t('app.views.items.dialogs.destroy_confirmation'),
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<%= link_to t('app.controls.new'), new_item_path, :class => 'btn btn-primary' %>
+</div>

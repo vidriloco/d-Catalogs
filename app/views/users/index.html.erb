@@ -1,0 +1,46 @@
+<%- model_class = User -%>
+<div class="big-panel">
+	<div class="page-header">
+	  <h1><%=t 'app.navbar.sections.users' %></h1>
+	</div>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= model_class.human_attribute_name(:id) %></th>
+	      <th><%= model_class.human_attribute_name(:email) %></th>
+	      <th><%= model_class.human_attribute_name(:username) %></th>
+	      <th><%= model_class.human_attribute_name(:permissions) %></th>
+	      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
+	      <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
+	      <th><%= t('app.attributes.common.created_at') %></th>
+	      <th><%= t('app.navbar.sections.actions') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @users.each do |user| %>
+	      <tr>
+	        <td class="id-details"><%= link_to user.id, user_path(user) %></td>
+	        <td><%= user.email %></td>
+	        <td><%= user.username %></td>
+	        <td><%= user.humanized_permissions %></td>
+	        <td><%= distance_of_time_in_words_to_now(user.last_sign_in_at, true) %></td>
+	        <td><%= user.last_sign_in_ip %></td>
+	        <td><%= distance_of_time_in_words_to_now(user.created_at, true) %></td>
+	        <td>
+	          <%= link_to t('app.controls.edit'),
+	                      edit_user_path(user), :class => 'btn btn-mini' %>
+	          <%= link_to t('app.controls.destroy'),
+	                      user_path(user),
+	                      :method => :delete,
+	                      :confirm => t('app.views.users.dialogs.destroy_confirmation'),
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<%= link_to t('app.controls.new'),
+	            new_user_path,
+	            :class => 'btn btn-primary' %>
+</div>

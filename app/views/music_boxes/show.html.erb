@@ -1,0 +1,42 @@
+<%- model_class = MusicBox -%>
+<div class="big-panel admin">
+	<div class="page-header">
+	  <h1><%= @music_box.title %> <span class="uppercased"><%= @music_box.artist %></span></h1>
+		<h3><%= @music_box.humanized_kind %></h3>
+		<div class="pull-right">
+			<p class="price">$ <%= @music_box.price %> MXN</p>
+		</div>
+	</div>
+
+	<dl class="dl-horizontal">
+	  <dt><strong><%= model_class.human_attribute_name(:format) %>:</strong></dt>
+	  <dd><%= @music_box.humanized_format %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:label) %>:</strong></dt>
+	  <dd><%= @music_box.label %></dd>
+		<dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
+	  <dd>
+			<% if @music_box.quantity == 1 %>
+				<%= t('app.views.common.show.quantity.one') %>
+			<% else %>
+				<%= t('app.views.common.show.quantity.other', :number => @music_box.quantity) %>
+			<% end %>
+		</dd>
+		<br>
+		<dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+	  <dd><%= distance_of_time_in_words_to_now @music_box.created_at %></dd>
+		<dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+	  <dd><%= distance_of_time_in_words_to_now @music_box.updated_at %></dd>
+		<br>
+		<dt><strong><%= model_class.human_attribute_name(:reference_id) %>:</strong></dt>
+	  <dd><%= @music_box.reference_id %></dd>
+	</dl>
+
+	<div class="form-actions">
+	  <%= link_to t('app.controls.back'), music_boxes_path, :class => 'btn'  %>
+	  <%= link_to t('app.controls.edit'), edit_music_box_path(@music_box), :class => 'btn' %>
+	  <%= link_to t('app.controls.destroy'), music_box_path(@music_box),
+	              :method => 'delete',
+	              :confirm => t('app.views.music_boxes.dialogs.destroy_confirmation'),
+	              :class => 'btn btn-danger' %>
+	</div>
+</div>

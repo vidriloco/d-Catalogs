@@ -1,0 +1,23 @@
+es_MX:
+  app:
+    views:
+      items:
+        index:
+          title: "Equipos y Accesorios"
+        dialogs:
+          destroy_confirmation: "¿Eliminar este Equipo/Accesorio?" 
+        form:
+          reference_id_note: "No se recomienda cambiar el valor de este número"
+        new:
+          title: "Nuevo Equipo ó Accesorio"
+          register: "Guardar"
+        edit:
+          title: "Modificar Equipo ó Accesorio"
+  activerecord:
+    models:
+      item: "Equipo ó Accesorio"
+    attributes:
+      item:
+        brand: "Marca"
+        model: "Modelo"
+        kind: "Tipo"

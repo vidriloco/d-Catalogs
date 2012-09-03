@@ -1,0 +1,70 @@
+es_MX:
+  app:
+    window_default_title: "Catalogos Discoteca"
+    brand: "Discoteca Online"
+    navbar:
+      sections:
+        music: "CD's y Viniles"
+        books: "Libros"
+        items: "Equipo y Accesorios"
+        pre_sales: "Preventas"
+        users: "Usuarios"
+        discounts: "Descuentos"
+        account: "Cuenta"
+        actions: "Acciones"
+      actions:
+        preferences: "Preferencias"
+        log_out: "Salir"
+        log_in: "Entrar"
+      
+    footer:
+      brand: "Discoteca 2012"
+    dialogs:
+      cancel: "Cancelar"
+      accept: "Aceptar"
+    controls:
+      new: "Nuevo"
+      edit: "Modificar"
+      destroy: "Eliminar"
+      back: "Atrás"
+      cancel: "Cancelar"
+    notes:
+      form:
+        reference_id: "No se recomienda cambiar el valor de este número"
+    attributes:
+      common:
+        quantity: "Unidades en existencia"
+        price: "Precio"
+        created_at: "Creado"
+        updated_at: "Actualizado"
+        reference_id: "Inventario id"
+    categories:
+      users:
+        permissions:
+          superuser: "Superusuario"
+          manager: "Administrador"
+          observer: "Supervisor"
+      items:
+        kinds:
+          accessory: "Accesorio"
+          equipment: "Equipamiento"
+      music_boxes:
+        kinds:
+          cd: "CD"
+          vinil: "Vinil"
+        formats:
+          single: "Sencillo"
+          double: "Doble"
+          triple: "Triple"
+          boxset: "Box-Set"
+    views:
+      common:
+        show:
+          quantity: 
+            one: "Un ejemplar"
+            other: "%{number} ejemplares"
+      sessions:
+        new:
+          title: "Iniciar Sesión"
+          log_in: "Entrar"
+        

@@ -1,0 +1,2 @@
+module PreSalesHelper
+end

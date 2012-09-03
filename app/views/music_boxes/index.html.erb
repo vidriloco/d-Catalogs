@@ -1,0 +1,47 @@
+<%- model_class = MusicBox -%>
+<div class="big-panel">
+	<div class="page-header">
+	  <h1><%=t 'app.navbar.sections.music' %></h1>
+	</div>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= model_class.human_attribute_name(:id) %></th>
+	      <th><%= t('app.attributes.common.reference_id') %></th>
+	      <th><%= model_class.human_attribute_name(:title) %></th>
+	      <th><%= model_class.human_attribute_name(:artist) %></th>
+	      <th><%= model_class.human_attribute_name(:format) %></th>
+	      <th><%= t('app.attributes.common.price') %></th>
+	      <th><%= model_class.human_attribute_name(:label) %></th>
+	      <th><%= t('app.attributes.common.created_at') %></th>
+	      <th><%= t('app.attributes.common.quantity') %></th>
+	
+	      <th><%= t('app.navbar.sections.actions') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @music_boxes.each do |music_box| %>
+	      <tr>
+	        <td class="id-details"><%= link_to music_box.id, music_box_path(music_box) %></td>
+					<td><%= music_box.reference_id || "---" %></td>
+	        <td><%= music_box.title %></td>
+	        <td><%= music_box.artist %></td>
+	        <td><%= music_box.humanized_format %></td>
+	        <td>$ <%= music_box.price %> MXN</td>
+	        <td><%= music_box.label %></td>
+	        <td><%= distance_of_time_in_words_to_now(music_box.created_at, true) %></td>
+					<td><%= music_box.quantity %></td>
+	        <td>
+	          <%= link_to t('app.controls.edit'), edit_music_box_path(music_box), :class => 'btn btn-mini' %>
+	          <%= link_to t('app.controls.destroy'), music_box_path(music_box),
+	                      :method => :delete,
+	                      :confirm => t('app.views.music_boxes.dialogs.destroy_confirmation'),
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<%= link_to t('app.controls.new'), new_music_box_path, :class => 'btn btn-primary' %>
+</div>

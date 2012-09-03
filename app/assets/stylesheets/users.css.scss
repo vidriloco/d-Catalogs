@@ -1,0 +1,17 @@
+.login-panel {
+	background-color: white;
+	margin: 50px auto 0 auto;
+	width: 350px;
+	border: 1px solid #DCDCDC;
+	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	.body {
+		padding: 25px;
+		
+		h2 {
+			margin-bottom: 20px;
+		}
+	}
+}

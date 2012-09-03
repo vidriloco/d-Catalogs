@@ -1,0 +1,52 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+			<%= link_to t('app.brand'), root_path, :class => "brand" %>
+      <div class="container-fluid nav-collapse">
+				<% if user_signed_in? %>
+        	<ul class="nav">
+	          <li class="<%= 'selected' if controller_name.eql?("music_boxes") %>">
+							<%= link_to t('app.navbar.sections.music'), music_boxes_path  %>
+						</li>
+	          <li class="<%= 'selected' if controller_name.eql?("books") %>">
+							<%= link_to t('app.navbar.sections.books'), books_path  %>
+						</li>
+	          <li class="<%= 'selected' if controller_name.eql?("items") %>">
+							<%= link_to t('app.navbar.sections.items'), items_path  %>
+						</li>
+	          <li class="<%= 'selected' if controller_name.eql?("pre_sales") %>">
+							<%= link_to t('app.navbar.sections.pre_sales'), pre_sales_path  %>
+						</li>
+						</li>
+	          <li class="<%= 'selected' if controller_name.eql?("users") %>">
+							<%= link_to t('app.navbar.sections.users'), users_path  %>
+						</li>
+	        </ul>
+				
+				
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								<%= current_user.username %>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="icon-user"></i>&nbsp;<%=t('app.navbar.actions.preferences')%></a></li>
+								<li><a href="<%= destroy_user_session_path %>"><i class="icon-off"></i>&nbsp;<%= t('app.navbar.actions.log_out') %></a></li>
+							</ul>
+						</li>
+					</ul>
+				<% else %>
+					<ul class="nav pull-right">
+						<li><%= link_to t('app.navbar.actions.log_in'), new_user_session_path %></li>
+					</ul>
+				<% end %>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

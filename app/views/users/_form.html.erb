@@ -1,0 +1,26 @@
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :username, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :username, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :permissions, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:permissions, User.humanized_categories_for(:permissions).invert, { :include_blank => true, :class => 'select_field'}) %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('app.controls.cancel'), users_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<div class="control-group">
+  <%= f.label :price, t('app.attributes.common.price'), :class => 'control-label' %>
+  <div class="controls">
+    $ <%= f.text_field :price, :class => 'text_field' %> MXN
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :quantity, t('app.attributes.common.quantity'), :class => 'control-label' %>
+  <div class="controls">
+    <%= f.number_field :quantity, :class => 'number_field' %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :reference_id, t('app.attributes.common.reference_id'), :class => 'control-label' %>
+  <div class="controls">
+    <%= f.number_field :reference_id, :class => 'number_field' %>
+		<i>&nbsp;&nbsp; <%= t('app.notes.form.reference_id') %></i>
+  </div>
+</div>
+

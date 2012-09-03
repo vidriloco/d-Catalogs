@@ -1,0 +1,18 @@
+es_MX:
+  app:
+    views:
+      books:
+        edit:
+          title: "Modificar Libro"
+        dialogs:
+          destroy_confirmation: "¿Eliminar este Libro?"
+        new:
+          title: "Nuevo Libro"
+        
+  activerecord:
+    models:
+      book: "Libro"
+    attributes:
+      book:
+        title: "Título"
+        author: "Autor"

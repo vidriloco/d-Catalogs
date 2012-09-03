@@ -1,0 +1,21 @@
+es_MX:
+  app:
+    views:
+      music_boxes:
+        dialogs:
+          destroy_confirmation: "¿Eliminar este CD/Vinil?" 
+        new:
+          title: "Nuevo CD ó Vinil"
+          register: "Guardar"
+        edit:
+          title: "Modificar CD ó Vinil"
+  activerecord:
+    models:
+      music_box: "Music Box"
+    attributes:
+      music_box:
+        title: "Título"
+        artist: "Artista"
+        format: "Formato"
+        label: "Label"
+        kind: "Tipo"

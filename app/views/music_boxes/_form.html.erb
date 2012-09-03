@@ -1,0 +1,40 @@
+<%= form_for @music_box, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :artist, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :artist, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :format, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:format, MusicBox.humanized_categories_for(:formats).invert, { :include_blank => true, :class => 'select_field'}) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :label, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :label, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :kind, :class => 'control-label' %>
+    <div class="controls">
+			<%= f.select(:kind, MusicBox.humanized_categories_for(:kinds).invert, { :include_blank => true, :class => 'select_field'}) %>
+    </div>
+  </div>
+	
+	<%= render :partial => 'commons/form_fields', :locals => {:f => f} %>
+
+  <div class="form-actions">
+    <%= f.submit t('app.views.music_boxes.new.register'), :class => 'btn btn-primary' %>
+    <%= link_to t('app.controls.cancel'), music_boxes_path, :class => 'btn' %>
+  </div>
+<% end %>

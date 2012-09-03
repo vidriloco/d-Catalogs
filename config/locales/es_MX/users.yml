@@ -1,0 +1,23 @@
+es_MX:
+  app:
+    views:
+      users:
+        dialogs:
+          destroy_confirmation: "¿Eliminar este Usuario?" 
+        new:
+          title: "Nuevo Usuario"
+          register: "Guardar"
+        edit:
+          title: "Modificar Usuario"
+        show: 
+          title: "Detalles del Usuario"
+  activerecord:
+    models:
+      user: "Usuario"
+    attributes:
+      user:
+        username: "Nombre de usuario"
+        email: "Correo electrónico"
+        permissions: "Tipo de Usuario"
+        last_sign_in_at: "Ultimo ingreso"
+        last_sign_in_ip: "Ingreso por IP reciente"

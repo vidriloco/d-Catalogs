@@ -1,0 +1,28 @@
+<%- model_class = User -%>
+
+<div class="login-panel">
+	<fieldset class="control-group">
+
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "form-horizontal") do |f| %>
+			<div class="body">
+				<h2><%= t('app.views.sessions.new.title') %></h2>
+				
+		  	<div><%= f.label model_class.human_attribute_name(:email) %>
+		  	<%= f.email_field :email %></div>
+
+		  	<div><%= f.label model_class.human_attribute_name(:password) %>
+		  	<%= f.password_field :password %></div>
+			</div>
+			
+			<div class="form-actions">
+				<div class="pull-right">
+					<%= f.submit t('app.views.sessions.new.log_in'), :class => "btn btn-primary" %>
+					<button class="btn">Cancel</button>
+				</div>
+			</div>
+		<% end %>
+	</fieldset>
+</div>
+	
+
+

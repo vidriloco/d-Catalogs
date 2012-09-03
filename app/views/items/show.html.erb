@@ -1,0 +1,38 @@
+<%- model_class = Item -%>
+<div class="big-panel admin">
+	<div class="page-header">
+	  <h1><%= @item.brand %> <span class="uppercased"><%= @item.model %></span></h1>
+		<h3><%= @item.humanized_kind %></h3>
+		<div class="pull-right">
+			<p class="price">$ <%= @item.price %> MXN</p>
+		</div>
+	</div>
+
+	<dl class="dl-horizontal">
+		<dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
+	  <dd>
+			<% if @item.quantity == 1 %>
+				<%= t('app.views.common.show.quantity.one') %>
+			<% else %>
+				<%= t('app.views.common.show.quantity.other', :number => @item.quantity) %>
+			<% end %>
+		</dd>
+		<br>
+		<dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+	  <dd><%= distance_of_time_in_words_to_now @item.created_at %></dd>
+		<dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+	  <dd><%= distance_of_time_in_words_to_now @item.updated_at %></dd>
+		<br>
+		<dt><strong><%= model_class.human_attribute_name(:reference_id) %>:</strong></dt>
+	  <dd><%= @item.reference_id %></dd>
+	</dl>
+
+	<div class="form-actions">
+	  <%= link_to t('app.controls.back'), items_path, :class => 'btn'  %>
+	  <%= link_to t('app.controls.edit'), edit_item_path(@item), :class => 'btn' %>
+	  <%= link_to t('app.controls.destroy'), item_path(@item),
+	              :method => 'delete',
+	              :confirm => t('app.views.items.dialogs.destroy_confirmation'),
+	              :class => 'btn btn-danger' %>
+	</div>
+</div>

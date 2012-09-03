@@ -1,0 +1,20 @@
+es_MX:
+  app:
+    views:
+      pre_sales:
+        dialogs:
+          destroy_confirmation: "¿Eliminar esta Preventa?" 
+        new:
+          title: "Nueva Preventa"
+          register: "Guardar"
+        edit:
+          title: "Modificar Preventa"
+  activerecord:
+    models:
+      pre_sale: "Preventa"
+    attributes:
+      pre_sale:
+        event: "Evento"
+        date: "Fecha"
+        hour_minute: "Hora"
+        description: "Descripción"
