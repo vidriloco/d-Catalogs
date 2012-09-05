@@ -43,15 +43,13 @@ class PreSalesController < ApplicationController
   # POST /pre_sales
   # POST /pre_sales.json
   def create
-    @pre_sale = PreSale.new(params[:pre_sale])
+    @pre_sale = PreSale.new_with(params[:pre_sale], params[:date])
 
     respond_to do |format|
       if @pre_sale.save
-        format.html { redirect_to @pre_sale, notice: 'Pre sale was successfully created.' }
-        format.json { render json: @pre_sale, status: :created, location: @pre_sale }
+        format.html { redirect_to @pre_sale, notice: I18n.t('app.views.pre_sales.messages.create.success') }
       else
         format.html { render action: "new" }
-        format.json { render json: @pre_sale.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,8 +60,8 @@ class PreSalesController < ApplicationController
     @pre_sale = PreSale.find(params[:id])
 
     respond_to do |format|
-      if @pre_sale.update_attributes(params[:pre_sale])
-        format.html { redirect_to @pre_sale, notice: 'Pre sale was successfully updated.' }
+      if @pre_sale.update_attributes_with(params[:pre_sale], params[:date])
+        format.html { redirect_to @pre_sale, notice: I18n.t('app.views.pre_sales.messages.update.success') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

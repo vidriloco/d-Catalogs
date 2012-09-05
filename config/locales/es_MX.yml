@@ -60,7 +60,7 @@ es_MX:
     views:
       common:
         show:
-          quantity: 
+          quantity:
             one: "Un ejemplar"
             other: "%{number} ejemplares"
       sessions:

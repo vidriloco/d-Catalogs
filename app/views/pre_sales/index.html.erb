@@ -22,11 +22,13 @@
 	    <% @pre_sales.each do |pre_sale| %>
 	      <tr>
 	        <td class="id-details"><%= link_to pre_sale.id, pre_sale_path(pre_sale) %></td>
+	        <td><%= pre_sale.reference_id %></td>
 	        <td><%= pre_sale.event %></td>
-	        <td><%= pre_sale.date %></td>
-	        <td><%= pre_sale.price %></td>
+	        <td><%= pre_sale.date.in_time_zone("Mexico City").to_s(:short) %></td>
+	        <td>$<%= pre_sale.price %> MXN</td>
 	        <td><%= pre_sale.description %></td>
 	        <td><%= distance_of_time_in_words_to_now(pre_sale.created_at, true) %></td>
+			<td><%= pre_sale.quantity %></td>
 	        <td>
 	          <%= link_to t('app.controls.edit'),
 	                      edit_pre_sale_path(pre_sale), :class => 'btn btn-mini' %>

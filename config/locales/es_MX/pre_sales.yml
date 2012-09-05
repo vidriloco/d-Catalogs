@@ -2,6 +2,11 @@ es_MX:
   app:
     views:
       pre_sales:
+        messages:
+          create:
+            success: "Nueva Preventa registrada"
+          update:
+            success: "Preventa actualizada correctamente"
         dialogs:
           destroy_confirmation: "¿Eliminar esta Preventa?" 
         new:
