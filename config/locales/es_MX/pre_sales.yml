@@ -3,10 +3,13 @@ es_MX:
     views:
       pre_sales:
         messages:
+          save:
+            failure: "No fue posible guardar esta Preventa, revisa los campos marcados en rojo"
           create:
             success: "Nueva Preventa registrada"
           update:
             success: "Preventa actualizada correctamente"
+            failure: "No fue posible actualizar esta Preventa"
         dialogs:
           destroy_confirmation: "¿Eliminar esta Preventa?" 
         new:

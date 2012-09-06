@@ -2,6 +2,13 @@ es_MX:
   app:
     views:
       items:
+        messages:
+          save:
+            failure: "No fue posible guardar este Equipo o Accesorio, revisa los campos marcados en rojo"
+          create:
+            success: "Nuevo Equipo o Accesorio registrado"
+          update:
+            success: "Equipo o Accesorio actualizado correctamente"
         index:
           title: "Equipos y Accesorios"
         dialogs:

@@ -1,0 +1,5 @@
+<% if resource.errors.any? %>
+	<div class="alert alert-error">
+		<%= t("app.views.#{resource.class.to_s.underscore.pluralize}.messages.save.failure") %>
+	</div>
+<% end %>

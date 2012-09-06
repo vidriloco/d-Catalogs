@@ -1,30 +1,32 @@
 <%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t('app.views.users.show.title') %></h1>
-</div>
+<div class="big-panel">
+	<div class="page-header">
+	  <h1><%=t('app.views.users.show.title') %></h1>
+	</div>
 
-<dl class="dl-horizontal">
-  <strong><%= model_class.human_attribute_name(:email) %>:</strong>
-  <%= @user.email %>
-	<br/>
-	<strong><%= model_class.human_attribute_name(:permissions) %>:</strong>
-  <%= @user.humanized_permissions %>
-	<br/>
-  <strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong>
-  <%= @user.last_sign_in_at %>
-	<br/>
-  <strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong>
-  <%= @user.last_sign_in_ip %>
-</dl>
+	<dl class="dl-horizontal">
+	  <strong><%= model_class.human_attribute_name(:email) %>:</strong>
+	  <%= @user.email %>
+		<br/>
+		<strong><%= model_class.human_attribute_name(:permissions) %>:</strong>
+	  <%= @user.humanized_permissions %>
+		<br/>
+	  <strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong>
+	  <%= @user.last_sign_in_at %>
+		<br/>
+	  <strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong>
+	  <%= @user.last_sign_in_ip %>
+	</dl>
 
-<div class="form-actions">
-  <%= link_to t('app.controls.back'),
-              users_path, :class => 'btn'  %>
-  <%= link_to t('app.controls.edit'),
-              edit_user_path(@user), :class => 'btn' %>
-  <%= link_to t('app.controls.destroy'),
-              user_path(@user),
-              :method => 'delete',
-              :confirm => t('app.views.users.dialogs.destroy_confirmation'),
-              :class => 'btn btn-danger' %>
+	<div class="form-actions">
+	  <%= link_to t('app.controls.back'),
+	              users_path, :class => 'btn'  %>
+	  <%= link_to t('app.controls.edit'),
+	              edit_user_path(@user), :class => 'btn' %>
+	  <%= link_to t('app.controls.destroy'),
+	              user_path(@user),
+	              :method => 'delete',
+	              :confirm => t('app.views.users.dialogs.destroy_confirmation'),
+	              :class => 'btn btn-danger' %>
+	</div>
 </div>

@@ -2,6 +2,13 @@ es_MX:
   app:
     views:
       books:
+        messages:
+          save:
+            failure: "No fue posible guardar este Libro, revisa los campos marcados en rojo"
+          create:
+            success: "Nuevo Libro registrado"
+          update:
+            success: "Libro actualizado correctamente"
         edit:
           title: "Modificar Libro"
         dialogs:

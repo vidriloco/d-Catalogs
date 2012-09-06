@@ -5,7 +5,7 @@ class MusicBox < ActiveRecord::Base
   
   has_many :discounts, :as => :discountable
   
-  validates_presence_of :title, :artist, :format, :price, :kind, :reference_id
+  validates_presence_of :title, :artist, :format, :price, :kind, :reference_id, :quantity
   
   def humanized_format
     MusicBox.humanized_category_for(:formats, self.format)

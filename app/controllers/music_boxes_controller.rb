@@ -47,7 +47,7 @@ class MusicBoxesController < ApplicationController
 
     respond_to do |format|
       if @music_box.save
-        format.html { redirect_to @music_box, notice: 'Music box was successfully created.' }
+        format.html { redirect_to @music_box, notice: I18n.t('app.views.music_boxes.messages.create.success') }
         format.json { render json: @music_box, status: :created, location: @music_box }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class MusicBoxesController < ApplicationController
 
     respond_to do |format|
       if @music_box.update_attributes(params[:music_box])
-        format.html { redirect_to @music_box, notice: 'Music box was successfully updated.' }
+        format.html { redirect_to @music_box, notice: I18n.t('app.views.music_boxes.messages.update.success') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

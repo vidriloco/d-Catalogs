@@ -2,6 +2,13 @@ es_MX:
   app:
     views:
       users:
+        messages:
+          save:
+            failure: "No fue posible guardar este Usuario, revisa los campos marcados en rojo"
+          create:
+            success: "Nuevo Usuario registrado"
+          update:
+            success: "Usuario actualizado correctamente"
         dialogs:
           destroy_confirmation: "¿Eliminar este Usuario?" 
         new:

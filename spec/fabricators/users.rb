@@ -9,7 +9,7 @@ Fabricator(:user, aliases: [:superuser]) do
     when "admin"
       User.category_for(:permissions, :superuser)
     when "manager"
-      User.category_for(:permissions, :superuser)
+      User.category_for(:permissions, :manager)
     when "observer"
       User.category_for(:permissions, :observer)
     end

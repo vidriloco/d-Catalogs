@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :username, :permissions
+  validates_presence_of :permissions, :username
   # attr_accessible :title, :body
   
   def humanized_permissions

@@ -1,16 +1,14 @@
 <%- model_class = PreSale -%>
 <div class="big-panel admin">
 	<div class="page-header">
-	  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+	  <h1><%= @pre_sale.event %> <span class="uppercased"><%= @pre_sale.date.in_time_zone("Mexico City").to_s(:short) %></span></h1>
+		<h3><%= t('activerecord.models.pre_sale') %></h3>
+		<div class="pull-right">
+			<p class="price">$<%= @pre_sale.price %> MXN</p>
+		</div>
 	</div>
 
 	<dl class="dl-horizontal">
-	  <dt><strong><%= model_class.human_attribute_name(:event) %>:</strong></dt>
-	  <dd><%= @pre_sale.event %></dd>
-	  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-	  <dd><%= @pre_sale.date.in_time_zone("Mexico City").to_s(:short) %></dd>
-	  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-	  <dd><%= @pre_sale.price %></dd>
 	  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
 	  <dd><%= @pre_sale.description %></dd>
 	</dl>

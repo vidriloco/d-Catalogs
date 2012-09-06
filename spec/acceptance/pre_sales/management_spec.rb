@@ -13,7 +13,7 @@ feature 'Presales management' do
       login_as(@pepe)
     end
     
-    scenario 'I can register a pre-sale when providing valid data', :js => true do
+    scenario "I can register a pre-sale when providing valid data", :js => true do
       visit pre_sales_path
       click_on I18n.t('app.controls.new')
       page.current_path.should == new_pre_sale_path
@@ -45,6 +45,19 @@ feature 'Presales management' do
       
       # As the following DateTime test datetime is not stored to db, we aren't changing the timezone such as: in_time_zone("Mexico City")
       page.should have_content DateTime.new(2012, Date.today.month, 15, 7, 30).to_time.to_s(:short)
+    end
+    
+    scenario "I cannot register a pre-sale when not providing valid data", :js => true  do
+      visit pre_sales_path
+      click_on I18n.t('app.controls.new')
+      page.current_path.should == new_pre_sale_path
+      
+      within('.form-actions') do
+        find('.btn-primary').click()
+      end
+      
+      page.current_path.should == pre_sales_path
+      page.should have_content I18n.t('app.views.pre_sales.messages.save.failure')
     end
     
     describe "Having a previously registered pre-sale", :js => true do

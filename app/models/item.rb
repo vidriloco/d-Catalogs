@@ -6,6 +6,8 @@ class Item < ActiveRecord::Base
   has_many :pictures, :as => :imageable
   has_many :discounts, :as => :discountable
   
+  validates_presence_of :reference_id, :brand, :model, :price, :quantity, :kind
+  
   def humanized_kind
     Item.humanized_category_for(:kinds, self.kind)
   end

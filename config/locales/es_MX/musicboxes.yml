@@ -2,6 +2,13 @@ es_MX:
   app:
     views:
       music_boxes:
+        messages:
+          save:
+            failure: "No fue posible guardar este CD o Vinil, revisa los campos marcados en rojo"
+          create:
+            success: "Nuevo CD o Vinil registrado"
+          update:
+            success: "CD o Vinil actualizado correctamente"
         dialogs:
           destroy_confirmation: "¿Eliminar este CD/Vinil?" 
         new:
