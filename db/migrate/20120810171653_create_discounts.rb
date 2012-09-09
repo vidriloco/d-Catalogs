@@ -4,8 +4,9 @@ class CreateDiscounts < ActiveRecord::Migration
       t.boolean :active
       t.float :price
       t.integer :percent_off
+      t.string :note
       t.references :discountable, :polymorphic => true
-
+      
       t.timestamps
     end
   end

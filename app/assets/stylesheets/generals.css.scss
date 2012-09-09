@@ -61,3 +61,31 @@ body, html, * {
 .btn-gold {
 	background-color: #AD9000 !important;
 }
+
+.centered {
+	text-align: center;
+}
+
+.well {
+	.header {
+		border-bottom: 1px solid #E1E8E2;
+		height: 40px;
+		
+		* {
+			display: inline-block;
+			
+			h3 {
+				color: black;
+			}
+		}
+		
+		.right {
+			float: right;
+			clear: both;
+		}
+	}
+	
+	.content {
+		padding-top: 30px;
+	}
+}

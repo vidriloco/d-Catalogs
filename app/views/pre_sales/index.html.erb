@@ -28,7 +28,7 @@
 	        <td>$<%= pre_sale.price %> MXN</td>
 	        <td><%= pre_sale.description %></td>
 	        <td><%= distance_of_time_in_words_to_now(pre_sale.created_at, true) %></td>
-			<td><%= pre_sale.quantity %></td>
+					<td><%= pre_sale.quantity %></td>
 	        <td>
 	          <%= link_to t('app.controls.edit'),
 	                      edit_pre_sale_path(pre_sale), :class => 'btn btn-mini' %>
@@ -43,5 +43,5 @@
 	  </tbody>
 	</table>
 
-	<%= link_to t('app.controls.new'), new_pre_sale_path, :class => 'btn btn-primary' %>
+	<%= link_to t('app.controls.new_f'), new_pre_sale_path, :class => 'btn btn-primary' %>
 </div>

@@ -1,0 +1,33 @@
+es_MX:
+  app:
+    views:
+      discounts:
+        fields:
+          active:
+            true: "Activado"
+            false: "No Activado"
+        messages:
+          save:
+            failure: "No fue posible guardar este Libro, revisa los campos marcados en rojo"
+          create:
+            success: "Nuevo Libro registrado"
+          update:
+            success: "Libro actualizado correctamente"
+        listing: 
+          none: "Este elemento no tiene ningún descuento registrado"
+        edit:
+          title: "Modificar Libro"
+        dialogs:
+          destroy_confirmation: "¿Eliminar este Descuento?"
+        new:
+          title: "Nuevo Libro"
+        
+  activerecord:
+    models:
+      discount: "Descuento"
+    attributes:
+      discount:
+        active: "¿Activado?"
+        price: "Precio después del descuento"
+        note: "Concepto"
+        percent_off: "Descuento (porcentaje)"

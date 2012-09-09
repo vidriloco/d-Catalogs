@@ -79,7 +79,9 @@ class DiscountsController < ApplicationController
     @discount.destroy
 
     respond_to do |format|
-      format.html { redirect_to discounts_url }
+      format.html do
+         redirect_to @discount.discountable
+      end
       format.json { head :no_content }
     end
   end

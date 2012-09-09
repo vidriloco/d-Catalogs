@@ -12,6 +12,8 @@
 	  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
 	  <dd><%= @pre_sale.description %></dd>
 	</dl>
+	
+	<%= render :partial => 'discounts/index', :locals => {:item => @pre_sale} %>
 
 	<div class="form-actions">
 	  <%= link_to t('app.controls.back'),

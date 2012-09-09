@@ -23,7 +23,9 @@ es_MX:
       cancel: "Cancelar"
       accept: "Aceptar"
     controls:
+      add: "Agregar +"
       new: "Nuevo"
+      new_f: "Nueva"
       edit: "Modificar"
       destroy: "Eliminar"
       back: "Atrás"
@@ -58,6 +60,9 @@ es_MX:
           triple: "Triple"
           boxset: "Box-Set"
     views:
+      related:
+        discounts:
+          head: "Descuentos para este producto"
       common:
         show:
           quantity:

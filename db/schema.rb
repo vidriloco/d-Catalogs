@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120810174805) do
     t.boolean  "active"
     t.float    "price"
     t.integer  "percent_off"
+    t.string   "note"
     t.integer  "discountable_id"
     t.string   "discountable_type"
     t.datetime "created_at",        :null => false

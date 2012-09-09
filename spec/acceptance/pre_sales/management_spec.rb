@@ -15,7 +15,7 @@ feature 'Presales management' do
     
     scenario "I can register a pre-sale when providing valid data", :js => true do
       visit pre_sales_path
-      click_on I18n.t('app.controls.new')
+      click_on I18n.t('app.controls.new_f')
       page.current_path.should == new_pre_sale_path
       
       fill_in "pre_sale_event", :with => "Paquita la del Barrio"
@@ -40,7 +40,7 @@ feature 'Presales management' do
         find('.btn-primary').click()
       end
       
-      page.current_path.should == pre_sale_path(PreSale.last.id)
+      page.current_path.should == pre_sale_path(PreSale.last)
       page.should have_content I18n.t('app.views.pre_sales.messages.create.success')
       
       # As the following DateTime test datetime is not stored to db, we aren't changing the timezone such as: in_time_zone("Mexico City")
@@ -49,7 +49,7 @@ feature 'Presales management' do
     
     scenario "I cannot register a pre-sale when not providing valid data", :js => true  do
       visit pre_sales_path
-      click_on I18n.t('app.controls.new')
+      click_on I18n.t('app.controls.new_f')
       page.current_path.should == new_pre_sale_path
       
       within('.form-actions') do
@@ -70,7 +70,7 @@ feature 'Presales management' do
         visit pre_sales_path
         click_on I18n.t('app.controls.edit')
         
-        page.current_path.should == edit_pre_sale_path(@presale.id)
+        page.current_path.should == edit_pre_sale_path(@presale)
         page.evaluate_script("$('#date_text').val()").should == @presale.date.strftime("%d-%m-%Y")
         
         fill_in "pre_sale_event", :with => "Paca la del Barrio"
