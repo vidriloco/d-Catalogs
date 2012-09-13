@@ -7,12 +7,16 @@ es_MX:
             true: "Activado"
             false: "No Activado"
         messages:
+          field_errors:
+            missing_percentage_info: "Falta especificar un porcentaje de descuento"
+            missing_price_info: "Falta especificar un precio después de aplicar el descuento"
+            missing_note: "Faltó escribir el concepto del descuento"
           save:
-            failure: "No fue posible guardar este Libro, revisa los campos marcados en rojo"
+            failure: "No fue posible añadir un descuento para este producto"
           create:
-            success: "Nuevo Libro registrado"
+            success: "Se ha añadido un nuevo descuento para este producto"
           update:
-            success: "Libro actualizado correctamente"
+            success: "Cambios realizados con éxito"
         listing: 
           none: "Este elemento no tiene ningún descuento registrado"
         edit:
@@ -20,7 +24,7 @@ es_MX:
         dialogs:
           destroy_confirmation: "¿Eliminar este Descuento?"
         new:
-          title: "Nuevo Libro"
+          title: "Nuevo Descuento"
         
   activerecord:
     models:

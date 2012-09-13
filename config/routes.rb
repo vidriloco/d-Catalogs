@@ -3,9 +3,11 @@ DCatalogs::Application.routes.draw do
 
   resources :pictures
 
-  resources :discounts
-
-  resources :pre_sales
+  resources :pre_sales do
+    resources :discounts, :only => [:new, :edit]
+  end
+  
+  resources :discounts, :only => [:destroy, :create, :update]
 
   resources :items
 

@@ -13,8 +13,6 @@
 	  <dd><%= @pre_sale.description %></dd>
 	</dl>
 	
-	<%= render :partial => 'discounts/index', :locals => {:item => @pre_sale} %>
-
 	<div class="form-actions">
 	  <%= link_to t('app.controls.back'),
 	              pre_sales_path, :class => 'btn'  %>
@@ -25,5 +23,21 @@
 	              :method => 'delete',
 	              :confirm => t('app.views.pre_sales.dialogs.destroy_confirmation'),
 	              :class => 'btn btn-danger' %>
+	</div>
+	
+	<ul class="nav nav-tabs">
+  	<li><a href="#home" data-toggle="tab" id="home-tab"><%= t('app.views.common.show.menu.home') %></a></li>
+  	<li><a href="#discounts" data-toggle="tab" id="discounts-tab"><%= t('app.views.common.show.menu.discounts') %></a></li>
+  	<li><a href="#images" data-toggle="tab" id="images-tab"><%= t('app.views.common.show.menu.images') %></a></li>
+  </ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="home">
+			<div class="hero-unit">
+				<p><%= t('app.views.common.show.menu.instructions') %></p>
+			</div>
+		</div>
+		<div class="tab-pane" id="discounts"><%= render :partial => 'discounts/index', :locals => {:item => @pre_sale} %></div>
+		<div class="tab-pane" id="images"></div>
 	</div>
 </div>

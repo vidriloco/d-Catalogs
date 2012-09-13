@@ -14,5 +14,5 @@ describe PreSale do
     presale.should be_persisted
     presale.date.should == Time.new(2012, 02, 16, 21, 14).utc
   end
-  
+    
 end

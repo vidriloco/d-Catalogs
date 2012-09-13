@@ -8,4 +8,20 @@ module ApplicationHelper
 		    <span class='add-on'><i class='icon-th'></i></span>
 		</div>".html_safe
   end
+  
+  def associated_discountable_for(record)
+    "<span class='connective'>#{t('connectives.for')}</span> <span class='category'>#{t("activerecord.models.#{record.class.to_s.underscore}")}</span> : <span class='name'>#{record.name}</span>".html_safe
+  end
+  
+  def errors_for(resource, fields)
+    output=String.new
+    if fields && fields.length > 0
+      output << " :<br>"
+      fields.each do |field|
+        val = resource.errors[field][0]
+        output << " <i>#{val}</i>," unless val.blank?
+      end
+      output.chop.html_safe
+    end
+  end
 end

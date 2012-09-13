@@ -1,4 +1,6 @@
 es_MX:
+  connectives:
+    for: "para"
   app:
     window_default_title: "Catalogos Discoteca"
     brand: "Discoteca Online"
@@ -59,12 +61,17 @@ es_MX:
           double: "Doble"
           triple: "Triple"
           boxset: "Box-Set"
-    views:
+    views:        
       related:
         discounts:
           head: "Descuentos para este producto"
       common:
         show:
+          menu:
+            instructions: "Selecciona una pestaña para ver algún bloque de información"
+            home: "Principal"
+            discounts: "Descuentos"
+            images: "Imágenes"
           quantity:
             one: "Un ejemplar"
             other: "%{number} ejemplares"
