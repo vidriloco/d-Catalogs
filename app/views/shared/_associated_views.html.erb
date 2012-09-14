@@ -1,7 +1,15 @@
+<% unless defined?(views) %>
+	<%- views = [:discounts, :images] %>
+<% end %>
+
 <ul class="nav nav-tabs">
 	<li><a href="#home" data-toggle="tab" id="home-tab"><%= t('app.views.common.show.menu.home') %></a></li>
-	<li><a href="#discounts" data-toggle="tab" id="discounts-tab"><%= t('app.views.common.show.menu.discounts') %></a></li>
-	<li><a href="#images" data-toggle="tab" id="images-tab"><%= t('app.views.common.show.menu.images') %></a></li>
+	<% if should_render_section(views, :discounts) %>
+		<li><a href="#discounts" data-toggle="tab" id="discounts-tab"><%= t('app.views.common.show.menu.discounts') %></a></li>
+	<% end %>
+	<% if should_render_section(views, :images) %>
+		<li><a href="#images" data-toggle="tab" id="images-tab"><%= t('app.views.common.show.menu.images') %></a></li>
+	<% end %>
 </ul>
 
 <div class="tab-content">
@@ -10,6 +18,10 @@
 			<p><%= t('app.views.common.show.menu.instructions') %></p>
 		</div>
 	</div>
-	<div class="tab-pane" id="discounts"><%= render :partial => 'discounts/index', :locals => {:item => associated_record} %></div>
-	<div class="tab-pane" id="images"></div>
+	<% if should_render_section(views, :discounts) %>
+		<div class="tab-pane" id="discounts"><%= render :partial => 'discounts/index', :locals => {:item => associated_record} %></div>
+	<% end %>
+	<% if should_render_section(views, :images) %>
+			<div class="tab-pane" id="images"></div>
+	<% end %>
 </div>

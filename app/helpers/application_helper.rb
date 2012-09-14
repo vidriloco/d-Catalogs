@@ -24,4 +24,8 @@ module ApplicationHelper
       output.chop.html_safe
     end
   end
+  
+  def should_render_section(views, section)
+    return views.index(section)
+  end
 end
