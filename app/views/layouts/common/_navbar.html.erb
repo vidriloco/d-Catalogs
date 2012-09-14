@@ -23,9 +23,11 @@
 							<%= link_to t('app.navbar.sections.pre_sales'), pre_sales_path  %>
 						</li>
 						</li>
-	          <li class="<%= 'selected' if controller_name.eql?("users") %>">
-							<%= link_to t('app.navbar.sections.users'), users_path  %>
-						</li>
+						<% if current_user.superuser? %>
+	          	<li class="<%= 'selected' if controller_name.eql?("users") %>">
+								<%= link_to t('app.navbar.sections.users'), users_path  %>
+							</li>
+						<% end %>
 	        </ul>
 				
 				
@@ -36,7 +38,7 @@
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="icon-user"></i>&nbsp;<%=t('app.navbar.actions.preferences')%></a></li>
+								<li><a href="<%= edit_user_path(current_user) %>" class="settings"><i class="icon-user"></i>&nbsp;<%=t('app.navbar.actions.preferences')%></a></li>
 								<li><a href="<%= destroy_user_session_path %>"><i class="icon-off"></i>&nbsp;<%= t('app.navbar.actions.log_out') %></a></li>
 							</ul>
 						</li>

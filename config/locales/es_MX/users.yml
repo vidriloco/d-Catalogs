@@ -3,6 +3,7 @@ es_MX:
     views:
       users:
         messages:
+          not_allowed: "No tienes los permisos requeridos para administrar usuarios"
           save:
             failure: "No fue posible guardar este Usuario, revisa los campos marcados en rojo"
           create:
@@ -15,6 +16,7 @@ es_MX:
           title: "Nuevo Usuario"
           register: "Guardar"
         edit:
+          my_title: "Modificar información de tu cuenta"
           title: "Modificar Usuario"
         show: 
           title: "Detalles del Usuario"
@@ -26,5 +28,7 @@ es_MX:
         username: "Nombre de usuario"
         email: "Correo electrónico"
         permissions: "Tipo de Usuario"
+        password: "Contraseña"
+        password_confirmation: "Confirmación de contraseña"
         last_sign_in_at: "Ultimo ingreso"
         last_sign_in_ip: "Ingreso por IP reciente"

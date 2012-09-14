@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   
   before_filter :authenticate_user!
-  
+  before_filter :authenticate_superuser!, :only => [:index, :new, :create, :destroy]
+  before_filter :verify_user_can_autoedit!, :only => [:show, :edit, :update]
   # GET /users
   # GET /users.json
   def index
@@ -82,5 +83,16 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def authenticate_superuser!
+    unless user_signed_in? && current_user.superuser?
+      redirect_to root_path
+    end
+  end
+  
+  def verify_user_can_autoedit!
+    (user_signed_in? && current_user.id == params[:id]) || (user_signed_in? && current_user.superuser?)
   end
 end

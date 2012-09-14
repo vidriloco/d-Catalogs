@@ -1,6 +1,13 @@
 <%= render :partial => 'shared/error', :locals => {:resource => @user} %>
 
 <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="control-group">
+    <%= f.label :username, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :username, :class => 'text_field' %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
@@ -8,18 +15,26 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :username, :class => 'control-label' %>
+    <%= f.label :password, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :username, :class => 'text_field' %>
+      <%= f.password_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :permissions, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select(:permissions, User.humanized_categories_for(:permissions).invert, { :include_blank => true, :class => 'select_field'}) %>
-    </div>
-  </div>
+	<% if user_signed_in? && current_user.superuser? %>
+  	<div class="control-group">
+	    <%= f.label :permissions, :class => 'control-label' %>
+	    <div class="controls">
+	      <%= f.select(:permissions, User.humanized_categories_for(:permissions).invert, { :include_blank => true, :class => 'select_field'}) %>
+	    </div>
+	  </div>
+	<% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

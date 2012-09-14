@@ -12,10 +12,10 @@
 	  <%= @user.humanized_permissions %>
 		<br/>
 	  <strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong>
-	  <%= @user.last_sign_in_at %>
+	  <%= @user.last_sign_in_at || "---" %>
 		<br/>
 	  <strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong>
-	  <%= @user.last_sign_in_ip %>
+	  <%= @user.last_sign_in_ip || "---" %>
 	</dl>
 
 	<div class="form-actions">
