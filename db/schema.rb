@@ -52,14 +52,14 @@ ActiveRecord::Schema.define(:version => 20120810174805) do
   create_table "music_boxes", :force => true do |t|
     t.string   "title"
     t.string   "artist"
-    t.integer  "format"
+    t.integer  "presentation_format"
     t.float    "price"
     t.string   "label"
-    t.integer  "quantity",     :default => 0
+    t.integer  "quantity",            :default => 0
     t.integer  "kind"
-    t.integer  "reference_id",                :null => false
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "reference_id",                       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "music_boxes", ["reference_id"], :name => "index_music_boxes_on_reference_id", :unique => true

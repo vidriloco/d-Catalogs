@@ -2,7 +2,7 @@
 <div id="discounts" class="well">
 	<div class="header">
 		<div class="title"><h3><%= t('app.views.related.discounts.head') %></h3></div>
-		<div class="right"><%= link_to t('app.controls.add'), new_pre_sale_discount_path(item), :class => "btn btn-inverse" %></div>
+		<div class="right"><%= link_to t('app.controls.add'), send("new_#{item.class.to_s.underscore}_discount_path", item), :class => "btn btn-inverse" %></div>
 	</div>
 	<div class="content">
 		<% if item.discounts.empty? %>
@@ -27,7 +27,7 @@
 			        <td><%= discount.percent_off %>%</td>
 			        <td>
 			          <%= link_to t('app.controls.edit'),
-			                      edit_pre_sale_discount_path(item, discount), :class => 'btn btn-mini' %>
+			                      [:edit, item, discount], :class => 'btn btn-mini' %>
 			          <%= link_to t('app.controls.destroy'),
 			                      discount_path(discount),
 			                      :method => :delete,

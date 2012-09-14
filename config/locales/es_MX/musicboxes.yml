@@ -23,6 +23,6 @@ es_MX:
       music_box:
         title: "Título"
         artist: "Artista"
-        format: "Formato"
+        presentation_format: "Formato"
         label: "Label"
         kind: "Tipo"

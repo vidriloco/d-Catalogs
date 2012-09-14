@@ -35,4 +35,7 @@
 	              :confirm => t('app.views.items.dialogs.destroy_confirmation'),
 	              :class => 'btn btn-danger' %>
 	</div>
+	
+	<%= render :partial => 'shared/associated_views', :locals => { :associated_record => @item } %>
+	
 </div>

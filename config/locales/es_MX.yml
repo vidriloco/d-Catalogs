@@ -56,7 +56,7 @@ es_MX:
         kinds:
           cd: "CD"
           vinil: "Vinil"
-        formats:
+        presentation_formats:
           single: "Sencillo"
           double: "Doble"
           triple: "Triple"

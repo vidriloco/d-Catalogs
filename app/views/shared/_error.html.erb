@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
 	<div class="alert alert-error">
 		<b><%= t("app.views.#{resource.class.to_s.underscore.pluralize}.messages.save.failure") %></b>
-		<%= errors_for(resource, for_selected_fields) %>
+		<%= errors_for(resource, for_selected_fields) if defined? for_selected_fields %>
 	</div>
 <% end %>

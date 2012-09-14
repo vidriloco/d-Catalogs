@@ -14,9 +14,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :format, :class => 'control-label' %>
+    <%= f.label :presentation_format, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select(:format, MusicBox.humanized_categories_for(:formats).invert, { :include_blank => true, :class => 'select_field'}) %>
+      <%= f.select(:presentation_format, MusicBox.humanized_categories_for(:presentation_formats).invert, { :include_blank => true, :class => 'select_field'}) %>
     </div>
   </div>
 

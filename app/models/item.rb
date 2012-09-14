@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   include Shared::Categories
+  include Shared::Presentators
   
   attr_accessible :brand, :model, :price, :kind, :quantity, :reference_id
   
@@ -7,6 +8,10 @@ class Item < ActiveRecord::Base
   has_many :discounts, :as => :discountable
   
   validates_presence_of :reference_id, :brand, :model, :price, :quantity, :kind
+  
+  def name
+    "#{brand} - #{model}"
+  end
   
   def humanized_kind
     Item.humanized_category_for(:kinds, self.kind)

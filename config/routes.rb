@@ -9,11 +9,17 @@ DCatalogs::Application.routes.draw do
   
   resources :discounts, :only => [:destroy, :create, :update]
 
-  resources :items
+  resources :items do
+    resources :discounts, :only => [:new, :edit]
+  end
 
-  resources :books
+  resources :books do
+    resources :discounts, :only => [:new, :edit]
+  end
 
-  resources :music_boxes
+  resources :music_boxes do
+    resources :discounts, :only => [:new, :edit]
+  end
 
   resources :users
   # The priority is based upon order of creation:

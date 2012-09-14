@@ -3,7 +3,7 @@ class CreateMusicBoxes < ActiveRecord::Migration
     create_table :music_boxes do |t|
       t.string :title
       t.string :artist
-      t.integer :format
+      t.integer :presentation_format
       t.float :price
       t.string :label
       t.integer :quantity, :default => 0

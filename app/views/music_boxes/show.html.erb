@@ -9,11 +9,11 @@
 	</div>
 
 	<dl class="dl-horizontal">
-	  <dt><strong><%= model_class.human_attribute_name(:format) %>:</strong></dt>
-	  <dd><%= @music_box.humanized_format %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:presentation_format) %>:</strong></dt>
+	  <dd><%= @music_box.humanized_presentation_format %></dd>
 	  <dt><strong><%= model_class.human_attribute_name(:label) %>:</strong></dt>
 	  <dd><%= @music_box.label %></dd>
-		<dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.quantity') %>:</strong></dt>
 	  <dd>
 			<% if @music_box.quantity == 1 %>
 				<%= t('app.views.common.show.quantity.one') %>
@@ -22,12 +22,12 @@
 			<% end %>
 		</dd>
 		<br>
-		<dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.created_at') %>:</strong></dt>
 	  <dd><%= distance_of_time_in_words_to_now @music_box.created_at %></dd>
-		<dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.updated_at') %>:</strong></dt>
 	  <dd><%= distance_of_time_in_words_to_now @music_box.updated_at %></dd>
 		<br>
-		<dt><strong><%= model_class.human_attribute_name(:reference_id) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.reference_id') %>:</strong></dt>
 	  <dd><%= @music_box.reference_id %></dd>
 	</dl>
 
@@ -39,4 +39,7 @@
 	              :confirm => t('app.views.music_boxes.dialogs.destroy_confirmation'),
 	              :class => 'btn btn-danger' %>
 	</div>
+	
+	<%= render :partial => 'shared/associated_views', :locals => { :associated_record => @music_box } %>
+	
 </div>

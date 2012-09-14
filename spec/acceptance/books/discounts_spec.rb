@@ -1,19 +1,19 @@
 require 'acceptance/acceptance_helper'
 require 'acceptance/pre_sales/helpers'
 
-feature 'Discounts management (for pre-sales)' do
+feature 'Discounts management (for music boxes)' do
   
   before(:each) do
-    @presale = Fabricate(:pre_sale)
+    @book = Fabricate(:book)
     @pepe = Fabricate(:superuser, :as => "admin")
     login_as(@pepe)
   end
   
   
-  describe "Visiting a pre-sale description page with no registered discounts", :js => true do
+  describe "Visiting a book description page with no registered discounts", :js => true do
     
     before(:each) do
-      visit pre_sale_path(@presale)
+      visit book_path(@book)
       find("#discounts-tab").click
     end
     
@@ -23,13 +23,13 @@ feature 'Discounts management (for pre-sales)' do
     
     scenario "should not let me add a new discount if I provide imcomplete data" do
       click_on I18n.t('app.controls.add')
-      page.current_path.should == new_pre_sale_discount_path(@presale)
+      page.current_path.should == new_book_discount_path(@book)
       page.should have_content I18n.t('app.views.discounts.new.title')
-      page.should have_content @presale.name
+      page.should have_content @book.name
       
       # first attempt to save record
       check "discount_active"
-      fill_in "discount_note", :with => "En rebaja por bajas ventas"
+      fill_in "discount_note", :with => "En rebaja por que somos muy buena onda"
       
       within('.form-actions') do
         find('.btn-primary').click()
@@ -53,35 +53,35 @@ feature 'Discounts management (for pre-sales)' do
       
       # third attempt to save record
       
-      fill_in "discount_note", :with => "En rebaja por bajas ventas"
       fill_in "discount_price", :with => 500
+      fill_in "discount_note", :with => "En rebaja por que es un libro que todos deben leer"
       
       within('.form-actions') do
         find('.btn-primary').click()
       end
       
-      page.current_path.should == pre_sale_path(@presale)
+      page.current_path.should == book_path(@book)
       page.should have_content I18n.t('app.views.discounts.messages.create.success')
       
       find("#discounts-tab").click
-      page.should have_content "En rebaja por bajas ventas"
+      page.should have_content "En rebaja por que es un libro que todos deben leer"
       page.should have_content "50%"
       page.should have_content "$500.0 MXN"
     end
     
     it "can go to the new discount page but can cancel the registration" do
-      visit new_pre_sale_discount_path(@presale)
+      visit new_book_discount_path(@book)
       click_on I18n.t('app.controls.cancel')
       
-      page.current_path.should == pre_sale_path(@presale)
+      page.current_path.should == book_path(@book)
     end
   end
   
-  describe "Visiting a pre-sale description page with discounts", :js => true do
+  describe "Visiting a book description page with discounts", :js => true do
     
     before(:each) do
-      @discount = Fabricate(:discount, :discountable => @presale)
-      visit pre_sale_path(@presale)
+      @discount = Fabricate(:discount, :discountable => @book)
+      visit book_path(@book)
       find("#discounts-tab").click
     end
     
@@ -97,7 +97,7 @@ feature 'Discounts management (for pre-sales)' do
         click_on I18n.t('app.controls.edit')
       end
       
-      page.current_path.should == edit_pre_sale_discount_path(@presale, @discount)
+      page.current_path.should == edit_book_discount_path(@book, @discount)
       
       fill_in "discount_note", :with => "En rebaja por que somos bien buena onda"
       fill_in "discount_price", :with => 5000
@@ -106,7 +106,7 @@ feature 'Discounts management (for pre-sales)' do
         find('.btn-primary').click()
       end
       
-      page.current_path.should == pre_sale_path(@presale)
+      page.current_path.should == book_path(@book)
       page.should have_content I18n.t('app.views.discounts.messages.update.success')
     end
     
@@ -117,7 +117,7 @@ feature 'Discounts management (for pre-sales)' do
       
       page.driver.browser.switch_to.alert.accept
       
-      page.current_path.should == pre_sale_path(@presale)
+      page.current_path.should == book_path(@book)
       
       find("#discounts-tab").click
       page.should have_content I18n.t('app.views.discounts.listing.none')
