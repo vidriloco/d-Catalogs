@@ -24,6 +24,6 @@ class PreSale < ActiveRecord::Base
   
   def self.extract_date_from(date_components)
     date = Date.strptime(date_components["text"], "%d-%m-%Y")
-    Time.new(date.year, date.month, date.day, date_components["hour"], date_components["minute"])
+    Time.new(date.year, date.month, date.day, date_components["hour"], date_components["minute"]).in_time_zone("Mexico City")
   end
 end

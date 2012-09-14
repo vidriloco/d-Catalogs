@@ -16,7 +16,7 @@
   <div class="control-group">
     <%= label :hour_minute, t('activerecord.attributes.pre_sale.hour_minute'), :class => 'control-label' %>
     <div class="controls hour-minutes">
-			<%= select_time %>
+			<%= select_time @pre_sale.date %>
     </div>
   </div>
   <div class="control-group">
