@@ -1,0 +1,24 @@
+<%- model_class = Picture -%>
+<div id="pictures" class="well">
+	<div class="header">
+		<div class="title"><h3><%= t('app.views.related.pictures.head') %></h3></div>
+		<div class="right"><%= link_to t('app.controls.add'), send("new_#{item.class.to_s.underscore}_picture_path", item), :class => "btn btn-inverse" %></div>
+	</div>
+	<div class="content">
+		<% if item.pictures.empty? %>
+			<p class="centered"><%= t('app.views.pictures.listing.none') %></p>
+		<% else %>
+			<div id="picture-list">
+				<% item.pictures.each do |picture| %>
+					<div id="<%= picture.id %>" class="picture">
+						<a rel="gallery" href="<%= picture.image.url %>" title="<%= picture.caption %>" class="image open-gallery"><%= image_tag picture.image.preview.url %></a>
+						<ul class="controls">
+							<li><%= link_to "", [:edit, picture.imageable, picture], :class => "edit control" %></li>
+							<li><%= link_to "", picture_path(picture), :method => :delete, :class => "delete control", :confirm => t('app.views.pictures.dialogs.destroy_confirmation') %></li>
+						</ul>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

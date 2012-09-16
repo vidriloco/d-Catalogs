@@ -9,7 +9,7 @@
 	</div>
 
 	<dl class="dl-horizontal">
-		<dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.quantity') %>:</strong></dt>
 	  <dd>
 			<% if @book.quantity == 1 %>
 				<%= t('app.views.common.show.quantity.one') %>
@@ -18,12 +18,12 @@
 			<% end %>
 		</dd>
 		<br>
-		<dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.created_at') %>:</strong></dt>
 	  <dd><%= distance_of_time_in_words_to_now @book.created_at %></dd>
-		<dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.updated_at') %>:</strong></dt>
 	  <dd><%= distance_of_time_in_words_to_now @book.updated_at %></dd>
 		<br>
-		<dt><strong><%= model_class.human_attribute_name(:reference_id) %>:</strong></dt>
+		<dt><strong><%= t('app.attributes.common.reference_id') %>:</strong></dt>
 	  <dd><%= @book.reference_id %></dd>
 	</dl>
 

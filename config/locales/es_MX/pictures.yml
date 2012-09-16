@@ -1,0 +1,33 @@
+es_MX:
+  app:
+    views:
+      pictures:
+        fields:
+        messages:
+          uploading: "Espera por favor, subiendo imagen"
+          field_errors:
+            missing_caption: "Falta añadir un pie de foto a la imagen"
+            missing_attachment: "Falta añadir un archivo de imagen (PNG, JPEG, JPG)"
+          save:
+            failure: "No fue posible guardar esta imagen"
+          create:
+            success: "Se guardo una nueva imagen a este producto"
+          update:
+            success: "Cambios guardados correctamente"
+        listing: 
+          none: "Este elemento no tiene ninguna imagen registrada"
+        dialogs:
+          destroy_confirmation: "¿Eliminar esta Imagen?"
+        edit:
+          title: "Modificar Imagen"
+        new:
+          title: "Añadir Imagen"
+        
+  activerecord:
+    models:
+      picture: "Imagen"
+    attributes:
+      picture:
+        caption: "Detalles"
+        image: "Imagen"
+        

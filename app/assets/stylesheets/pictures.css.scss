@@ -1,3 +1,117 @@
 // Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image {
+	display: block;
+	width: 250px;
+	height: 250px;
+	padding: 5px;
+	background-color: #000;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.picture {
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	vertical-align: top;
+	
+	ul.controls {
+		display: none;
+		position: relative;
+		top: -60px;
+		left: 140px;
+		display: block;
+		width: 70px;
+		padding: 1px;
+		padding-left: 10px;
+		
+		list-style: none;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		background-color: rgba(0,0,0,0.9);
+		-moz-box-shadow: 0 0 2px #040404;
+		-webkit-box-shadow: 0 0 2px #040404;
+		box-shadow: 0 0 2px #040404;
+		
+		li {
+			a {
+				margin-top: 4px;
+				display: block;
+				width: 30px;
+				height: 30px;
+			}
+			
+			a.delete {
+				background-image: url('../assets/delete-icon-h.png');
+			}
+			
+			a.edit {
+				background-image: url('../assets/edit-icon-h.png');
+			}
+			
+			a.edit:hover {
+				background-image: url('../assets/edit-icon.png');
+			}
+			
+			a.delete:hover {
+				background-image: url('../assets/delete-icon.png');
+			}
+			
+			display: inline-block;
+		}
+	}
+}
+
+#blocking {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255,255,255,0.5);
+	z-index: 9999;
+	margin: 0 !important;
+	top: 0px;
+	padding: 0;
+	
+	.uploading {
+		background-color: black;
+		-moz-box-shadow: 0 0 4px #040404;
+		-webkit-box-shadow: 0 0 4px #040404;
+		border: 1px solid white;
+		
+		box-shadow: 0 0 2px #040404;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		position: fixed;
+		z-index: 99999;
+
+		width: 400px;
+		
+		top: 50%;
+		left: 50%;
+		margin-top: -100px;
+		margin-left: -200px;
+		
+
+		p {
+			padding: 20px 30px;
+			text-align: center;
+			color: white;
+			font-weight: 100;
+			font-size: 18px;
+		}
+
+		.loader {
+			margin-left: auto;
+			margin-right: auto;
+			background-image: url('../assets/loadinfo.gif');
+			width: 48px;
+			height: 48px;
+			margin-bottom: 20px;
+		}
+	}
+}
+

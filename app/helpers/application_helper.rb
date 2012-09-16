@@ -9,7 +9,7 @@ module ApplicationHelper
 		</div>".html_safe
   end
   
-  def associated_discountable_for(record)
+  def associated_record_for(record)
     "<span class='connective'>#{t('connectives.for')}</span> <span class='category'>#{t("activerecord.models.#{record.class.to_s.underscore}")}</span> : <span class='name'>#{record.name}</span>".html_safe
   end
   

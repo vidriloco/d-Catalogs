@@ -19,10 +19,10 @@ es_MX:
             success: "Cambios realizados con éxito"
         listing: 
           none: "Este elemento no tiene ningún descuento registrado"
-        edit:
-          title: "Modificar Libro"
         dialogs:
           destroy_confirmation: "¿Eliminar este Descuento?"
+        edit:
+          title: "Modificar Descuento"
         new:
           title: "Nuevo Descuento"
         

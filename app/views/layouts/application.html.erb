@@ -36,6 +36,15 @@
   </head>
   <body>
 
+	
+	<div id="blocking">
+		<div class="uploading">
+			<p><%= yield :blocking_dialog %></p>
+			<div class="loader"></div>
+		</div>
+	</div>
+
+
 	<%= render :partial => 'layouts/common/navbar' %>
 
     <div class="container">

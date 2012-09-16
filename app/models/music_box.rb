@@ -4,8 +4,8 @@ class MusicBox < ActiveRecord::Base
   
   attr_accessible :artist, :presentation_format, :label, :price, :title, :kind, :reference_id, :quantity
   
-  has_many :discounts, :as => :discountable
-  
+  has_many :discounts, :as => :discountable, :dependent => :destroy
+    
   validates_presence_of :title, :artist, :presentation_format, :price, :kind, :reference_id, :quantity
   
   def humanized_presentation_format

@@ -1,20 +1,32 @@
-<%= form_for @picture, :html => { :class => 'form-horizontal' } do |f| %>
+<%= render :partial => 'shared/error', :locals => {:resource => @picture, :for_selected_fields => [:caption, :image] } %>
+
+<% content_for :blocking_dialog do %>
+	<%= t('app.views.pictures.messages.uploading') %>
+<% end %>
+
+<%= form_for @picture, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+	
+	<% if allows_image_change %>
+  	<div class="control-group">
+	    <%= f.label :image, :class => 'control-label' %>
+	    <div class="controls">
+	      <%= f.file_field :image, :class => 'file_field' %>
+	    </div>
+	  </div>
+	<% end %>
+
   <div class="control-group">
     <%= f.label :caption, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :caption, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :image, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :image, :class => 'text_field' %>
+      <%= f.text_area :caption, :cols => 30, :rows => 2, :class => 'text_field' %>
     </div>
   </div>
 
+	<%= hidden_field :picture, :imageable_type %>
+	<%= hidden_field :picture, :imageable_id %>
+
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                pictures_path, :class => 'btn' %>
+    <%= f.submit nil, :class => 'btn btn-primary with-blocking-msg' %>
+    <%= link_to t('app.controls.cancel'), @picture.imageable, :class => 'btn' %>
   </div>
 <% end %>

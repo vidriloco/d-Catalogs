@@ -15,4 +15,5 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.es
+//= require jquery.colorbox-min
 //= require_tree .

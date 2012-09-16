@@ -5,8 +5,8 @@ class PreSale < ActiveRecord::Base
   
   validates_presence_of :date, :description, :event, :price, :reference_id, :quantity
     
-  has_many :pictures, :as => :imageable
-  has_many :discounts, :as => :discountable
+  has_many :pictures, :as => :imageable, :dependent => :destroy  
+  has_many :discounts, :as => :discountable, :dependent => :destroy
   
   def self.new_with(common_params, date_components)
     PreSale.new(common_params.merge({ date: PreSale.extract_date_from(date_components).utc }))

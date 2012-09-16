@@ -2,7 +2,7 @@
 <div class="big-panel">
 	<div class="page-header">
 	  <h1><%= t('app.views.discounts.new.title') %></h1>
-		<h3><%= associated_discountable_for(@discount.discountable) %></h3>
+		<h3><%= associated_record_for(@discount.discountable) %></h3>
 	</div>
 	<%= render :partial => 'form' %>
 </div>

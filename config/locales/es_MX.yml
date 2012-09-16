@@ -65,13 +65,15 @@ es_MX:
       related:
         discounts:
           head: "Descuentos para este producto"
+        pictures:
+          head: "Imágenes de este producto"
       common:
         show:
           menu:
             instructions: "Selecciona una pestaña para ver algún bloque de información"
             home: "Principal"
             discounts: "Descuentos"
-            images: "Imágenes"
+            pictures: "Imágenes"
           quantity:
             one: "Un ejemplar"
             other: "%{number} ejemplares"

@@ -1,14 +1,13 @@
 require 'acceptance/acceptance_helper'
 require 'acceptance/pre_sales/helpers'
 
-feature 'Discounts management (for music boxes)' do
+feature 'Discounts management (for books)' do
   
   before(:each) do
     @book = Fabricate(:book)
     @pepe = Fabricate(:superuser, :as => "admin")
     login_as(@pepe)
   end
-  
   
   describe "Visiting a book description page with no registered discounts", :js => true do
     
@@ -21,7 +20,7 @@ feature 'Discounts management (for music boxes)' do
       page.should have_content I18n.t('app.views.discounts.listing.none')
     end
     
-    scenario "should not let me add a new discount if I provide imcomplete data" do
+    scenario "should let me add a new discount until I provide complete data" do
       click_on I18n.t('app.controls.add')
       page.current_path.should == new_book_discount_path(@book)
       page.should have_content I18n.t('app.views.discounts.new.title')

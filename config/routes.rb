@@ -1,20 +1,22 @@
 DCatalogs::Application.routes.draw do
   devise_for :users, :only => [:sessions, :passwords]
 
-  resources :pictures
-
+  resources :discounts, :only => [:destroy, :create, :update]
+  resources :pictures, :only => [:destroy, :create, :update]
+  
   resources :pre_sales do
     resources :discounts, :only => [:new, :edit]
+    resources :pictures, :only => [:new, :edit]
   end
   
-  resources :discounts, :only => [:destroy, :create, :update]
-
   resources :items do
     resources :discounts, :only => [:new, :edit]
+    resources :pictures, :only => [:new, :edit]
   end
 
   resources :books do
     resources :discounts, :only => [:new, :edit]
+    resources :pictures, :only => [:new, :edit]
   end
 
   resources :music_boxes do

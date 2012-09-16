@@ -11,6 +11,10 @@ gem 'formtastic'
 gem 'twitter-bootstrap-rails'
 gem 'fabrication'
 
+gem 'carrierwave', '0.6.2'
+gem 'rmagick'
+gem 'fog'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

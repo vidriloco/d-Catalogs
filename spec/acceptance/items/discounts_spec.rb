@@ -1,7 +1,7 @@
 require 'acceptance/acceptance_helper'
 require 'acceptance/pre_sales/helpers'
 
-feature 'Discounts management (for item)' do
+feature 'Discounts management (for items)' do
   
   before(:each) do
     @item = Fabricate(:item)
@@ -21,7 +21,7 @@ feature 'Discounts management (for item)' do
       page.should have_content I18n.t('app.views.discounts.listing.none')
     end
     
-    scenario "should not let me add a new discount if I provide imcomplete data" do
+    scenario "should let me add a new discount until I provide complete data" do
       click_on I18n.t('app.controls.add')
       page.current_path.should == new_item_discount_path(@item)
       page.should have_content I18n.t('app.views.discounts.new.title')

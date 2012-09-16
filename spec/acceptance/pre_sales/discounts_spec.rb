@@ -21,7 +21,7 @@ feature 'Discounts management (for pre-sales)' do
       page.should have_content I18n.t('app.views.discounts.listing.none')
     end
     
-    scenario "should not let me add a new discount if I provide imcomplete data" do
+    scenario "should let me add a new discount until I provide complete data" do
       click_on I18n.t('app.controls.add')
       page.current_path.should == new_pre_sale_discount_path(@presale)
       page.should have_content I18n.t('app.views.discounts.new.title')

@@ -4,8 +4,8 @@ class Item < ActiveRecord::Base
   
   attr_accessible :brand, :model, :price, :kind, :quantity, :reference_id
   
-  has_many :pictures, :as => :imageable
-  has_many :discounts, :as => :discountable
+  has_many :pictures, :as => :imageable, :dependent => :destroy  
+  has_many :discounts, :as => :discountable, :dependent => :destroy
   
   validates_presence_of :reference_id, :brand, :model, :price, :quantity, :kind
   
