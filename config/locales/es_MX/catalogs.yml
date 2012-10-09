@@ -1,0 +1,12 @@
+es_MX:
+  catalogs:
+    mini:
+      new_items: "Nuevos Arribos"
+      discounts: "Ofertas"
+    items:
+      books: "Libros"
+      vinils: "Viniles"
+      cds: "CDs"
+      accessories: "Accesorios"
+      pre_sales: "Preventas"
+      

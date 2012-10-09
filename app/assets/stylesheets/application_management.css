@@ -12,6 +12,12 @@
  *= require_self
  *= require datepicker
  *= require colorbox
- *= require_tree .
+ *= require generals
+ *= require bootstrap_and_overrides
+ *= require pictures
+ *= require pre_sales
+ *= require scaffolds
+ *= require users
+ *= require welcome
  */
 

@@ -16,4 +16,6 @@
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.es
 //= require jquery.colorbox-min
-//= require_tree .
+//= require discounts
+//= require pictures
+//= require pre_sales

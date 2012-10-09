@@ -18,7 +18,7 @@ es_MX:
           title: "Modificar CD ó Vinil"
   activerecord:
     models:
-      music_box: "Music Box"
+      music_box: "CD o Vinil"
     attributes:
       music_box:
         title: "Título"

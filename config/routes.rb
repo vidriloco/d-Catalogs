@@ -23,6 +23,8 @@ DCatalogs::Application.routes.draw do
     resources :discounts, :only => [:new, :edit]
   end
 
+  resources :catalogs, :only => [:index]
+
   resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.

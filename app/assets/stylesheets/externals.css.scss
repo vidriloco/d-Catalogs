@@ -1,0 +1,118 @@
+#discoteca-catalogo {
+	width: 250px;
+	font-family: 'Open Sans';
+	font-size: 13px;
+	
+	.catalog {
+		border: 1px solid #CFCFCF;
+		padding: 5px;
+	}
+	
+	ul {
+		list-style: none;
+		
+		ul {
+			padding-left: 0 !important;
+			
+			li {
+				margin: 5px 0px 5px 0px;
+			}
+		}
+		
+		li.subsection {
+			margin-top: 20px;	
+			
+			.quantity {
+				font-weight: bold;
+				color: white;
+				background-color: #C5C5C5;
+				padding: 2px 5px;
+				width: 15px !important;
+				text-align: center;
+				display: inline-block;
+				margin-right: 10px;
+			}
+		}
+		
+		li.section {
+			text-transform: uppercase;
+			font-weight: bold;
+			margin: 5px 0px 5px 0px;
+			
+			.arrows {
+				
+				position: relative;
+				float: right;
+				top: 2px;
+				
+				.right, .left {
+					width: 15px;
+					height: 15px;
+					display: inline-block;
+				}
+				
+				.right {
+					background: url('/assets/right-arrow.png');
+				}
+				
+				.left {
+					background: url('/assets/left-arrow.png');
+				}
+			}
+		}
+		
+		li.group {
+			background-color: #EFEFEF;
+			padding: 2px 8px;
+			
+			li.item {
+				
+				display: block;
+				
+				.image, .info {
+					vertical-align: top;
+					display: inline-block;
+				}
+				
+				.info {
+					width: 130px;
+					margin-left: 5px;
+					
+					p {
+						margin: 0px;
+					}
+					
+					// first-field and so on 
+					// generally product name
+					p.ff  {
+					}
+					
+					// category
+					.sf {
+						text-transform: uppercase;
+						font-weight: bold;
+						font-size: 10px;
+					}
+					
+					// generally price with discount
+					.tf {
+						font-size: 15px;
+						text-align: right;
+						font-weight: bold;
+						color: #B72530;
+					}
+					
+				}
+				
+				.image {
+					width: 70px;
+					height: 70px;
+					background-color: #535353;
+					
+				}
+			}
+		}
+	
+	}
+	
+}
