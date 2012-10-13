@@ -58,6 +58,6 @@ module DCatalogs
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.assets.precompile += ['application.js', 'application.css', 'apple-touch-icon-144x144-precomposed.png', 'apple-touch-icon-114x114-precomposed.png', 'images/apple-touch-icon-72x72-precomposed.png', 'images/apple-touch-icon-precomposed.png']
+    config.assets.precompile += ['dcatalogs.js', 'externals.css', 'application_management.js', 'application_management.css', 'apple-touch-icon-144x144-precomposed.png', 'apple-touch-icon-114x114-precomposed.png', 'images/apple-touch-icon-72x72-precomposed.png', 'images/apple-touch-icon-precomposed.png']
   end
 end
