@@ -38,26 +38,29 @@
 			text-transform: uppercase;
 			font-weight: bold;
 			margin: 5px 0px 5px 0px;
-			
-			.arrows {
-				
-				position: relative;
-				float: right;
-				top: 2px;
-				
-				.right, .left {
-					width: 15px;
-					height: 15px;
-					display: inline-block;
-				}
-				
-				.right {
-					background: url('/assets/right-arrow.png');
-				}
-				
-				.left {
-					background: url('/assets/left-arrow.png');
-				}
+		}
+		
+		.right, .left {
+			position: relative;
+			top: 0px;
+			width: 15px;
+			height: 15px;
+			display: inline-block;
+		}
+		
+		.right {
+			left: 195px;
+			background: url('/assets/right-arrow.png');
+		}
+		
+		.left {
+			background: url('/assets/left-arrow.png');
+		}
+		
+		#discounts-slider {
+			h3 {
+				text-align: center;
+				color: #999;
 			}
 		}
 		

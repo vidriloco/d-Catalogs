@@ -25,11 +25,26 @@ css.media = "all";
 css.href = mainURL+"/assets/externals.css";
 document.getElementsByTagName("head")[0].appendChild(css);
 
+
+
 // avoid conflicts with other libraries
 var jQQ = jQuery.noConflict();
 jQQ.get(mainURL+'/catalogs.js', {type: 'mini'}, function(data) {
 	console.log(data);
 	eval(data);
+	
+	// configure Slider
+	jQQ("#new-slider").slides({
+		container: 'slides-container',
+		next: 'right',
+		prev: 'left',
+		generateNextPrev: true,
+		generatePagination: false
+	});
+	
+	jQQ(".left").empty();
+	jQQ(".right").empty();
+	jQQ(".slides-container").css('height', '80px');
 }, 'text');	
 
 

@@ -1,21 +1,44 @@
 <ul class="catalog">
-	<li class="section"><%= t('catalogs.mini.new_items') %><div class="arrows"><div class="left"></div><div class="right"></div></div></li>
+	<li class="section"><%= t('catalogs.mini.new_items') %></li>
 	<li class="group">
-		<ul>
-			<li class="item">
-				<div class="image"></div>
-				<div class="info">
-					<p class="ff">Las mil y una noches</p>
-					<p class="sf">Libro</p>
-					<p class="tf">$ 150 MXN</p>
-				</div>
-			</li>
+		<ul id="new-slider">
+			<div class="slides-container">
+				<li class="item">
+					<div>
+						<div class="image"></div>
+						<div class="info">
+							<p class="ff">Las mil y una noches</p>
+							<p class="sf">Libro</p>
+							<p class="tf">$ 150 MXN</p>
+						</div>
+					</div>
+				</li>
+			
+				<li class="item">
+					<div>
+						<div class="image"></div>
+						<div class="info">
+							<p class="ff">Little Schemer</p>
+							<p class="sf">Libro</p>
+							<p class="tf">$ 350 MXN</p>
+						</div>
+					</div>
+				</li>
+			</div>
 		</ul>
 	</li>
 	
-	<li class="section"><%= t('catalogs.mini.discounts') %> <div class="arrows"><div class="left"></div><div class="right"></div></div></li>
+	<li class="section"><%= t('catalogs.mini.discounts') %></li>
 	<li class="group">
-		
+		<ul id="discounts-slider">
+			<div class="slides-container">
+				<li class="item none">
+					<div>
+						<h3>No hay ofertas por el momento</h3>
+					</div>
+				</li>
+			</div>
+		</ul>
 	</li>
 	<li class="subsection">
 		<ul>
