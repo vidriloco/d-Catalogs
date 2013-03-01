@@ -1,6 +1,8 @@
 es_MX:
   connectives:
     for: "para"
+  formatting:
+    currency: "$ %{quantity} MXN"
   app:
     window_default_title: "Catalogos Discoteca"
     brand: "Discoteca Online"
@@ -61,7 +63,12 @@ es_MX:
           double: "Doble"
           triple: "Triple"
           boxset: "Box-Set"
-    views:        
+    views:    
+      embed:
+        new_stock:
+          empty: "No hay nuevos arribos por ahora"
+        back_stock:
+          empty: "No hay ofertas por el momento"
       related:
         discounts:
           head: "Descuentos para este producto"

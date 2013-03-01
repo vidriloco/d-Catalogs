@@ -12,15 +12,18 @@ gem 'twitter-bootstrap-rails'
 gem 'fabrication'
 
 gem 'carrierwave', '0.6.2'
-gem 'rmagick'
 gem 'fog'
+gem 'rmagick', '2.13.2'
+gem 'passenger'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+	gem 'therubyracer', '0.11.4'
+	gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'slim'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 

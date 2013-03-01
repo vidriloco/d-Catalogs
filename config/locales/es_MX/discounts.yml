@@ -2,6 +2,9 @@ es_MX:
   app:
     views:
       discounts:
+        forms:
+          notes:
+            price: "Precio después del descuento"
         fields:
           active:
             true: "Activado"
@@ -32,6 +35,6 @@ es_MX:
     attributes:
       discount:
         active: "¿Activado?"
-        price: "Precio después del descuento"
+        price: "Precio"
         note: "Concepto"
         percent_off: "Descuento (porcentaje)"

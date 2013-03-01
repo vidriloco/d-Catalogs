@@ -1,6 +1,6 @@
 class MusicBox < ActiveRecord::Base
+  include Shared::Presentators::CatalogListPreview
   include Shared::Categories
-  include Shared::Presentators
   
   attr_accessible :artist, :presentation_format, :label, :price, :title, :kind, :reference_id, :quantity
   
@@ -16,8 +16,12 @@ class MusicBox < ActiveRecord::Base
     MusicBox.humanized_category_for(:kinds, self.kind)
   end
   
-  def name
+  # Presentators for CatalogListPreview
+  def first_field
     title
+  end
+  
+  def image_field
   end
   
   private

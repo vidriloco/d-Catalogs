@@ -3,27 +3,24 @@
 	<li class="group">
 		<ul id="new-slider">
 			<div class="slides-container">
-				<li class="item">
+				<% if @new_items.empty? %>
 					<div>
-						<div class="image"></div>
-						<div class="info">
-							<p class="ff">Las mil y una noches</p>
-							<p class="sf">Libro</p>
-							<p class="tf">$ 150 MXN</p>
-						</div>
+						<h3><%= t('app.views.embed.new_stock.empty') %></h3>
 					</div>
-				</li>
-			
-				<li class="item">
-					<div>
-						<div class="image"></div>
-						<div class="info">
-							<p class="ff">Little Schemer</p>
-							<p class="sf">Libro</p>
-							<p class="tf">$ 350 MXN</p>
-						</div>
-					</div>
-				</li>
+				<% else %>
+					<% @new_items.each do |item| %>
+						<li class="item">
+							<div>
+								<div class="image"><%= image_tag(item.image_field) unless item.image_field.nil? %></div>
+								<div class="info">
+									<p class="ff"><%= item.first_field %></p>
+									<p class="sf"><%= item.second_field %></p>
+									<p class="tf"><%= item.extra %></p>
+								</div>
+							</div>
+						</li>
+					<% end %>
+				<% end %>
 			</div>
 		</ul>
 	</li>
@@ -32,21 +29,36 @@
 	<li class="group">
 		<ul id="discounts-slider">
 			<div class="slides-container">
-				<li class="item none">
+				<% if @discounts.empty? %>
 					<div>
-						<h3>No hay ofertas por el momento</h3>
+						<h3><%= t('app.views.embed.new_stock.empty') %></h3>
 					</div>
-				</li>
+				<% else %>
+					<% @discounts.each do |discount| %>
+						<% item = discount.discountable %>
+						<li class="item">
+							<div>
+								<div class="image"><%= image_tag(item.image_field) unless item.image_field.nil? %></div>
+								<div class="info">
+									<p class="ff"><%= item.first_field %></p>
+									<p class="sf"><%= item.second_field %></p>
+									<p class="tf"><%= item.extra %></p>
+								</div>
+							</div>
+						</li>
+					<% end %>
+				<% end %>
 			</div>
 		</ul>
 	</li>
 	<li class="subsection">
 		<ul>
-			<li><span class="quantity">22</span> <%= t('catalogs.items.books') %></li>
-			<li><span class="quantity">19</span><%= t('catalogs.items.vinils') %></li>
-			<li><span class="quantity">34</span><%= t('catalogs.items.cds') %></li>
-			<li><span class="quantity">4</span><%= t('catalogs.items.accessories') %></li>
-			<li><span class="quantity">1</span><%= t('catalogs.items.pre_sales') %></li>
+			<%= stock_status_for(MusicBox, :cd) %>
+			<%= stock_status_for(MusicBox, :vinil) %>
+			<%= stock_status_for(Book) %>
+			<%= stock_status_for(Item, :accessory) %>
+			<%= stock_status_for(Item, :equipment) %>
+			<%= stock_status_for(PreSale) %>
 		</ul>
 	</li>
 

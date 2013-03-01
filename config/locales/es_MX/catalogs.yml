@@ -4,9 +4,22 @@ es_MX:
       new_items: "Nuevos Arribos"
       discounts: "Ofertas"
     items:
-      books: "Libros"
-      vinils: "Viniles"
-      cds: "CDs"
-      accessories: "Accesorios"
-      pre_sales: "Preventas"
+      books: 
+        one: "Libro"
+        many: "Libros"
+      vinils: 
+        one: "Vinil"
+        many: "Viniles"
+      cds:
+        one: "CD"
+        many: "CDs"
+      accessories:
+        one: "Accesorio"
+        many: "Accesorios"
+      equipment:
+        one: "Equipo"
+        many: "Equipos"
+      presales: 
+        one: "Preventa"
+        many: "Preventas"
       

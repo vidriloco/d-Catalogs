@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
+  include Shared::Presentators::CatalogListPreview
   include Shared::Categories
-  include Shared::Presentators
   
   attr_accessible :brand, :model, :price, :kind, :quantity, :reference_id
   
@@ -9,8 +9,16 @@ class Item < ActiveRecord::Base
   
   validates_presence_of :reference_id, :brand, :model, :price, :quantity, :kind
   
-  def name
-    "#{brand} - #{model}"
+  def first_field
+    brand
+  end
+  
+  def descriptor_field
+    model
+  end
+  
+  def second_field
+    humanized_kind
   end
   
   def humanized_kind

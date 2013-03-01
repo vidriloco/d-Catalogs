@@ -1,8 +1,12 @@
-development:
+common: &defaults
   adapter: postgresql
   encoding: unicode
-  database: discoteca_catalogos_dev
   pool: 5
+  
+development:
+  <<: *defaults
+  host: localhost
+  database: dcatalogs_dev
   username: spalatin
   password:
 
@@ -25,17 +29,14 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: discoteca_catalogos_test
-  pool: 5
+  <<: *defaults
+  host: localhost
+  database: dcatalogs_test
   username: spalatin
   password:
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  <<: *defaults
   database: discoteca_catalogos_prod
-  pool: 5
   username: Backend
   password:
